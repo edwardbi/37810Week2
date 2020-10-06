@@ -3,6 +3,9 @@ investment_value<-function(x,y,z=0.95, different_years=c(3,5)){
   # if there is an annual growth rate of y. Except that in 
   # years 3 and 5, there is a different growth rate of z.
   # Add the new command here for testing purpose
+  if(!(is.numeric(x) && is.numeric(y) && is.numeric(z))){
+    stop("Please double check on your inputs, x, y and z should all be numbers!")
+  }
   multiplier = 1 + y
   different_multiplier = 1 + z
   beginning_x=x
