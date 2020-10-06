@@ -14,7 +14,8 @@ investment_value<-function(x,y,z=0.95, different_years=c(3,5)){
       beginning_x<-beginning_x*multiplier
     } else {
       # In the different years we had a recession
-      beginning_x<-beginning_x*.96
+      # Bug 3: the diff year is not multiplied by the correct user-input
+      beginning_x<-beginning_x*different_multiplier#.96
     }
   }
   return(beginning_x)
