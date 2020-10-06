@@ -10,11 +10,12 @@ investment_value<-function(x,y,z=0.95, different_years=c(3,5)){
     # Bug 1: in this case, i is not looping through 1 to 10 but 2 to 11
     # i=i+1
     if (!(i %in% different_years)){      # should be true unless i is in the different_years vector
-      x<-beginning_x*multiplier
+      # Bug 2: beginnign_x is not changing
+      beginning_x<-beginning_x*multiplier
     } else {
       # In the different years we had a recession
-      x<-x*.96
+      beginning_x<-beginning_x*.96
     }
   }
-  return(x)
+  return(beginning_x)
 }
